@@ -59,7 +59,11 @@ private final class ConsoleModel: ObservableObject {
     private let feedback = UIImpactFeedbackGenerator(style: .soft)
     @objc init(screen: UIView, controls: MGBAControls) {
         model = ConsoleModel(screen: screen, controls: controls)
-        controller = UIHostingController(rootView: ConsoleView(model: model))
+        let host = UIHostingController(rootView: ConsoleView(model: model))
+        // ConsoleLayout already applies the parent's measured safe area. Avoid
+        // applying it again inside the hosting view (a half-inset visual shift).
+        if #available(iOS 16.4, *) { host.safeAreaRegions = [] }
+        controller = host
         super.init()
         controller.view.backgroundColor = .clear
     }
