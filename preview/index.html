@@ -1,38 +1,28 @@
 <!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>GBA Indigo — Atelier des calques</title>
-<link rel="stylesheet" href="preview.css">
-</head>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Advance — Touch</title><link rel="stylesheet" href="modern.css"></head>
 <body>
-<header><div class="eyebrow">GAME BOY ADVANCE · INDIGO</div><h1>Une façade. Chaque commande indépendante.</h1><p>Trois compositions en paysage, avec ouvertures transparentes et boutons séparés.</p></header>
+<header><a class="brand" href="./">advance<span> / touch</span></a><a class="archive" href="indigo.html">Voir la façade Indigo ↗</a></header>
 <main>
+<div class="intro"><div><p class="eyebrow">COMMANDES TACTILES · iOS</p><h1>Le jeu prend toute sa place.</h1><p>Des contours blancs. Une croix sous le pouce. Rien entre toi et le jeu.</p></div><span class="version">08 icônes<br>SVG + PNG</span></div>
 <div class="toolbar">
-<label>Écran <select id="device">
-<option value="wide">iPhone récent · 2622 × 1206</option>
-<option value="compact">iPhone compact · 2340 × 1080</option>
-<option value="classic">iPhone SE · 1334 × 750</option>
-<option value="ipad">iPad 13″ · 2752 × 2064</option>
-<option value="ipad11">iPad 11″ · 2420 × 1668</option>
-<option value="mini">iPad mini · 2266 × 1488</option>
-</select></label>
-<label class="check"><input type="checkbox" id="guides"> Marges simulées</label>
-<label class="check"><input type="checkbox" id="holes"> Voir les ouvertures</label>
-<button id="fullscreen" class="action">Plein écran</button>
+<label>Format <select id="device"><option value="wide">iPhone récent</option><option value="compact">iPhone compact</option><option value="classic">iPhone SE · 16:9</option><option value="ipad">iPad 13″ · 4:3</option><option value="ipad11">iPad 11″</option><option value="mini">iPad mini</option></select></label>
+<label class="opacity">Opacité <input id="opacity" type="range" min="25" max="100" value="65"><output id="opacityValue">65 %</output></label>
+<label><input id="guides" type="checkbox"> Zones tactiles</label>
+<button id="fullscreen">Plein écran ↗</button>
 </div>
-<div class="viewport" id="viewport" aria-label="Aperçu interactif de la façade">
-<div id="board" class="board"><div id="game" class="game"><span>GAME VIEW</span><strong>240 × 160</strong><small>Image entière · 3:2</small></div><img id="face" class="face" alt="Façade violette avec logements des boutons" draggable="false"><div id="controls"></div></div>
-<div class="safe-guide" id="safeGuide"><span>Zone préservée</span></div>
-<div id="camera" class="camera" aria-hidden="true"></div>
-<div id="gesture" class="gesture" aria-hidden="true"></div>
+<div id="viewport" class="viewport" tabindex="0" aria-label="Aperçu des commandes tactiles">
+  <div id="game" class="game"><div class="game-label"><span>IMAGE ENTIÈRE</span><strong>3:2</strong><span>240 × 160 · AGRANDISSEMENT MAXIMAL</span></div><span class="demo-label">SURFACE DE JEU · APERÇU SANS ÉMULATION</span></div>
+  <div id="moveZone" class="move-zone"><span>ZONE DE DÉPLACEMENT LIBRE</span></div>
+  <div id="pad" class="pad" aria-hidden="true"><img src="../assets/ios-outline/svg/dpad.svg" alt=""><i id="thumb"></i></div>
+  <div id="buttons"></div>
+  <div id="safeGuide" class="safe-guide"></div>
+  <div id="camera" class="camera"></div><div id="gesture" class="gesture"></div>
+  <div id="pause" class="pause" hidden><p>Aperçu en pause</p><button id="resume">Reprendre</button></div>
 </div>
-<div class="caption"><span id="status" aria-live="polite">Appuie sur une commande pour essayer.</span><span>Aperçu des calques · sans émulation</span></div>
-<section class="notes"><div><h2>Un appui lisible</h2><p>Croix inclinable dans huit directions autour de son pivot. Enfoncement léger des autres touches et retour immédiat.</p></div><div><h2>Des gâchettes accessibles</h2><p>L et R disposent d’une zone d’appui agrandie. Les marges simulées permettent d’inspecter les deux bords.</p></div><div><h2>Un pack réutilisable</h2><p>Les PNG restent indépendants. Le fichier manifest.json contient les positions et la fenêtre de jeu exacte.</p></div></section>
-<p class="help">Clavier : flèches = croix · X = A · Z = B · Q/E = L/R · Entrée = Start · Maj = Select.<br>Les dimensions indiquées sont celles des appareils ; les PNG sources ont leur propre résolution. Les marges de l’aperçu sont des simulations, à remplacer par les valeurs réelles d’iOS lors de l’intégration.</p>
-</main>
-<div id="safeProbe" aria-hidden="true"></div>
-<script src="assets.js"></script><script src="input.js"></script>
-<script src="preview.js"></script>
+<div class="caption"><span id="status" role="status">Pose le doigt à gauche, puis glisse dans une direction.</span><span id="sizeInfo">Ratio 3:2 conservé</span></div>
+<section class="details"><article><span>01 / LIBERTÉ</span><h2>La croix vient à toi.</h2><p>Tout contact dans la moitié gauche crée un nouveau centre. Glisse pour choisir l’une des huit directions ; relâche pour le libérer.</p></article><article><span>02 / CONFORT</span><h2>Les actions à portée de pouce.</h2><p>A/B en diagonale, L/R juste au-dessus. Start, Select et Pause restent en haut. Les zones respectent les marges de sécurité.</p></article><article><span>03 / CLARTÉ</span><h2>Juste le contour.</h2><p>Fond transparent, trait blanc et opacité réglable. Un éclaircissement confirme l’appui ; aucun bouton en relief ne masque le jeu.</p></article></section>
+<section class="asset-strip" aria-label="Les huit icônes séparées"></section>
+<footer>Flèches · X / Z = A / B · Q / E = L / R · Entrée = Start · Maj = Select · Échap = Pause<br>Sur écran large, des bandes préservent l’image entière. Les marges des formats sont simulées ; l’application utilise celles d’iOS.</footer>
+</main><div id="safeProbe"></div>
+<script src="input.js"></script><script src="touch-model.js"></script><script src="modern.js"></script>
 </body></html>

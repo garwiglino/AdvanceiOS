@@ -76,7 +76,7 @@
     [self.view addSubview:host.view];
     [host didMoveToParentViewController:self];
     _menuButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_menuButton setImage:[UIImage systemImageNamed:@"pause.circle.fill"] forState:UIControlStateNormal];
+    [_menuButton setImage:[UIImage systemImageNamed:@"pause.circle"] forState:UIControlStateNormal];
     _menuButton.tintColor = UIColor.whiteColor;
     _menuButton.accessibilityLabel = @"Pause et options";
     [_menuButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
@@ -147,8 +147,7 @@
     [super viewDidLayoutSubviews];
     _surface.controller.view.frame = self.view.bounds;
     [_surface updateLayout:self.view.bounds.size insets:self.view.safeAreaInsets];
-    CGRect safe = UIEdgeInsetsInsetRect(self.view.bounds, self.view.safeAreaInsets);
-    _menuButton.frame = CGRectMake(CGRectGetMidX(safe)-22, CGRectGetMaxY(safe)-48, 44, 44);
+    _menuButton.frame = _surface.menuFrame;
     CGRect screen = _surface.screenFrame;
     _resumeButton.frame = CGRectMake(CGRectGetMidX(screen)-90, CGRectGetMidY(screen)-25, 180, 50);
 }
@@ -273,7 +272,7 @@
         if (error) { [strongSelf showError:error]; return; }
         strongSelf->_loaded = YES;
         strongSelf->_screen.isAccessibilityElement = NO;
-        [strongSelf->_menuButton setImage:[UIImage systemImageNamed:@"pause.circle.fill"] forState:UIControlStateNormal];
+        [strongSelf->_menuButton setImage:[UIImage systemImageNamed:@"pause.circle"] forState:UIControlStateNormal];
         strongSelf->_menuButton.accessibilityLabel = @"Pause et options";
         [strongSelf resumeGame];
     }];

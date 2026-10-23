@@ -1267,6 +1267,16 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "70BF2100184E087FC21556F8";
 		};
+		"37C109D9F3918EF613C10F20" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "folder";
+			"path" = "../../assets/ios-outline";
+			"sourceTree" = "<group>";
+		};
+		"8098354D5D5FE2896711A81F" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "37C109D9F3918EF613C10F20";
+		};
 		"D9C6393D6C2EE0244C1E3BAF" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "text.plist.xml";
@@ -1528,6 +1538,7 @@
 				"9BD454B03A4885127CD8472C",
 				"815017B84844CF3968E194A0",
 				"70BF2100184E087FC21556F8",
+				"37C109D9F3918EF613C10F20",
 				"D9C6393D6C2EE0244C1E3BAF",
 			);
 			"name" = "Resources";
@@ -1705,6 +1716,7 @@
 				"DC0C56A6DF75AA021B200416",
 				"3AFFD10B7F7E1895ECBBAD09",
 				"952796BAC22A5E87DC601805",
+				"8098354D5D5FE2896711A81F",
 			);
 			"runOnlyForDeploymentPostprocessing" = "0";
 		};

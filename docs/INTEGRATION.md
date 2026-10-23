@@ -2,6 +2,8 @@
 
 ## Fichiers et coordonnées
 
+Ce guide concerne le pack historique. L’interface active est décrite dans [Commandes tactiles](TOUCH-CONTROLS.md) et l’ancien assemblage reste visible dans `preview/indigo.html`.
+
 Le fichier `assets/gba-indigo/manifest.json` est la référence d’assemblage. Les chemins d’images sont relatifs à ce fichier. Toutes les coordonnées sont en **pixels de l’image source**, origine en haut à gauche, x vers la droite et y vers le bas.
 
 | Champ | Usage |

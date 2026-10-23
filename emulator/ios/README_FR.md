@@ -2,7 +2,7 @@
 
 Port natif indépendant de mGBA 0.10.5 pour iPhone et iPad, à partir des sources de ce dossier. Façade en SwiftUI, contrôleur du moteur et intégrations système en Objective-C/UIKit, moteur C compilé directement dans l’application. iOS/iPadOS 16 minimum. Aucun binaire Windows, Qt, SDL, téléchargement de dépendances ou JIT n’est utilisé par le projet iOS.
 
-Le projet Xcode est déjà généré : **`mGBA-iOS.xcodeproj`**. Conserver **tout le dépôt AdvanceiOS** : `emulator/ios`, `emulator/src`, `emulator/include` et `assets/gba-indigo`. Le projet référence ces sources et les images par chemins relatifs.
+Le projet Xcode est déjà généré : **`mGBA-iOS.xcodeproj`**. Conserver **tout le dépôt AdvanceiOS**, dont `emulator/ios`, `emulator/src`, `emulator/include` et `assets`. Le projet référence ces sources et les images par chemins relatifs.
 
 ## Ouvrir et installer
 
@@ -14,19 +14,19 @@ Le projet Xcode est déjà généré : **`mGBA-iOS.xcodeproj`**. Conserver **tou
 
 Aucun certificat, compte Apple, profil de provisionnement ou jeu commercial n’est fourni. Le petit programme original `tests/ios-smoke-test.gba` est fourni pour vérifier le rendu : il produit un écran vert et écrit un marqueur dans la SRAM.
 
-**Validation actuelle :** compilation Debug simulateur et Release iOS sans signature réussie avec Xcode 26.6 sur GitHub Actions, et tests C réussis sous Windows ainsi que sur Mac. [Exécution de référence](https://github.com/garwiglino/AdvanceiOS/actions/runs/39957221485). Les essais tactiles, le son et les performances sur iPhone physique restent à effectuer. Voir `VALIDATION.md`.
+**Validation :** la version Indigo précédente a été compilée avec Xcode 26.6 ([exécution de référence](https://github.com/garwiglino/AdvanceiOS/actions/runs/39957221485)). Le résultat du workflow correspondant au dernier commit fait foi pour les nouvelles commandes. Les essais tactiles, le son et les performances sur iPhone physique restent à effectuer. Voir `VALIDATION.md`.
 
 ## Fonctions de cette version
 
 - Bibliothèque GBA, GB et GBC, import multiple depuis Fichiers, détection par le moteur, identification par SHA-256 pour séparer les sauvegardes des différentes ROM.
 - Rendu logiciel du moteur, pixels nets, proportions conservées, interface paysage sur iPhone, disposition adaptable aux rotations et fenêtres iPad.
-- Croix directionnelle avec diagonales et glissement, A/B/L/R/Start/Select simultanés ; façades Indigo et boutons du dépôt, bascule 3D de la croix en huit secteurs de 45°, zone centrale neutre, retour haptique désactivable et respect de Réduire les animations.
+- Croix flottante au point de contact dans la moitié gauche, huit secteurs de 45°, centre neutre ; A/B/L/R/Start/Select simultanés, icônes blanches transparentes, retour d’appui par opacité/lueur et vibrations désactivables.
 - Manettes exposant un profil Game Controller étendu : croix/stick gauche, A/B, épaules, Menu = Start, Options ou X = Select.
 - Audio stéréo à 48 kHz, tampon circulaire sans verrou dans le callback audio, vitesse normale et accélération ×2 avec son coupé.
 - Sauvegarde du jeu toutes les cinq secondes lorsqu’elle change et à la pause ; écritures atomiques.
 - État de reprise à la pause et au retour au lanceur, cinq emplacements d’état manuels, import/export `.sav`.
 - Pause lors du passage hors de l’application, d’une interruption audio ou d’un changement de sortie audio. Reprise explicite pour éviter de relancer un jeu pendant un appel.
-- Façade transparente en SwiftUI, écran central et **images de boutons indépendantes**, choisies selon le format iPhone large/classique ou iPad : voir `OVERLAYS.md`.
+- Jeu agrandi au maximum dans la zone sûre, commandes en SwiftUI directement par-dessus et **images de boutons indépendantes**. La coque Indigo reste archivée : voir `OVERLAYS.md`.
 - Icône provisoire, écran de lancement, manifeste de confidentialité, mentions et licences accessibles dans l’application.
 
 Le BIOS de remplacement intégré à mGBA est utilisé. Les fonctions propres à l’interface de bureau ne sont pas toutes reproduites : pas d’interface de triche/débogage, de rewind, de câble link/multijoueur, d’enregistrement vidéo, d’import ZIP/7z direct, de sélection de BIOS externe ou de prise en charge iOS des capteurs de cartouche, de la caméra et du rumble dans cette version. Ces fonctionnalités demandent des extensions du frontal ; le moteur source d’origine reste inclus.
@@ -52,7 +52,7 @@ Une fermeture forcée peut perdre les dernières secondes non écrites et ne cr�
 
 ## Structure et reconstruction
 
-`App/MGBAEngine.m` exécute le moteur sur une file série, synchronisée à l’affichage. Le thread audio ne fait ni accès disque ni appel au moteur. `Bridge/MGBASession.c` adapte les API mCore et isole le chargement en mémoire, les pixels, les échantillons et les sauvegardes. `App/MGBAConsoleView.swift` assemble la façade SwiftUI à partir du manifest des images, en conservant les proportions et les marges réelles de la vue. `MGBAControls.m` suit chaque contact séparément ; `MGBAInput.c` détermine les directions. `MGBALauncher.c` rend le sélecteur dans un framebuffer 240 × 160. Le menu appartient au frontal : il ne s’agit pas d’une ROM GBA exécutée par le cœur.
+`App/MGBAEngine.m` exécute le moteur sur une file série, synchronisée à l’affichage. Le thread audio ne fait ni accès disque ni appel au moteur. `Bridge/MGBASession.c` adapte les API mCore et isole le chargement en mémoire, les pixels, les échantillons et les sauvegardes. `App/MGBAConsoleView.swift` superpose les contrôles blancs au jeu agrandi, en conservant les proportions et les marges réelles de la vue. `MGBAControls.m` suit chaque contact séparément ; `MGBAInput.c` détermine les directions. `MGBALauncher.c` rend le sélecteur dans un framebuffer 240 × 160. Le menu appartient au frontal : il ne s’agit pas d’une ROM GBA exécutée par le cœur.
 
 Les drapeaux du projet sélectionnent les deux moteurs, le rendu 32 bits, le VFS en mémoire/fichiers et `MINIMAL_CORE=2`. `DISABLE_THREADING` désactive uniquement l’infrastructure de threads interne de mGBA ; le frontal iOS possède sa propre file d’émulation. Le projet Xcode compile les sources directement et évite les réglages macOS historiques du CMake de mGBA 0.10.5.
 

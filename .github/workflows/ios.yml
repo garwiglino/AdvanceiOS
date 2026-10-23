@@ -15,6 +15,8 @@ jobs:
       - name: Validate assets and project
         run: |
           python3 tools/validate_assets.py
+          node tools/test_input.cjs
+          node tools/test_touch.cjs
           python3 emulator/ios/tools/verify_project.py
       - name: Build simulator, device and run portable tests
         run: bash emulator/ios/tools/verify-macos.sh

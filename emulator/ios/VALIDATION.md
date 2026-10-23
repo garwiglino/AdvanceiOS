@@ -1,5 +1,11 @@
 # Validation du port — 23 octobre 2026
 
+## Nouvelle interface tactile
+
+Les contrôles blancs et la croix flottante remplacent la coque dans la vue active. Vérifications locales : huit SVG et PNG RGBA @3x, neuf géométries sans chevauchement et avec cibles de 44 points minimum, jeu 3:2 maximal, origine exacte au contact, neutralité initiale, diagonales, mouvement + A + R, priorité de L, deuxième doigt, sortie/rentrée dans une touche et annulation. Le projet comporte désormais 288 objets et 133 entrées locales, pour 114 unités compilées. L’aperçu iPhone et iPad est inspecté dans le navigateur. La compilation et le lancement Apple sont suivis dans le workflow du commit concerné ; les résultats historiques ci-dessous ne les remplacent pas.
+
+Sur appareil, vérifier particulièrement : déplacement près des quatre bords de la zone gauche, relâchement après interruption, maintien direction + action, accès à L/R avec différentes prises en main, contours blancs sur scènes claires, VoiceOver et rotations iPad.
+
 ## Vérifié dans l’environnement disponible
 
 Environnement : Windows, GCC MinGW 16.1.0, Python 3.15. Le script `tools/test_core.py` a compilé et lié **107 unités C**, comprenant la sélection des sources originales utilisée par le projet Xcode et le pont du port. Le programme de test s’est terminé avec le code de sortie 0.
@@ -47,7 +53,7 @@ Après ces compilations, effectuer les essais interactifs suivants :
 6. Exporter un `.sav`, l’importer, vérifier `battery-backup.sav` et le démarrage sans l’ancien `resume.ss0`. Vérifier les erreurs d’écriture et l’absence d’espace disque.
 7. Tester verrouillage, arrière-plan, appel/interruption audio et débranchement des écouteurs. Le jeu doit rester en pause jusqu’à « Reprendre ».
 8. Passer de vitesse normale à ×2 et revenir ; vérifier l’absence de son accumulé et la cadence.
-9. Vérifier la façade SwiftUI avec le pack Indigo : alignement identique à l’aperçu, huit inclinaisons de la croix, appuis simultanés, vibrations, option Réduire les animations et marges des deux paysages. Tester aussi VoiceOver.
+9. Vérifier les contrôles SwiftUI : alignement identique à l’aperçu moderne, origine flottante de la croix, appuis simultanés, vibrations et marges des deux paysages. Tester aussi VoiceOver. Le retour visuel moderne n’utilise pas de mouvement animé.
 10. Effectuer une session longue sur appareil pour mesurer stabilité, consommation, température et latence. Les performances n’ont pas été mesurées sur iPhone.
 
 Une publication nécessitera les réglages de signature propres au propriétaire, les essais sur appareil et une vérification de la distribution des sources/licences et des déclarations de l’application. Aucune soumission à une boutique n’a été effectuée.

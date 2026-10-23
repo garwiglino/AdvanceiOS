@@ -65,10 +65,10 @@ def generate():
         builds.append(obj('build:' + path, 'PBXBuildFile', fileRef=r))
     for path in sorted(IOS.glob('**/*.h')):
         source_refs.append(ref(path.relative_to(IOS).as_posix(), 'sourcecode.c.h'))
-    resources = ['Resources/Assets.xcassets', 'Resources/PrivacyInfo.xcprivacy', 'Resources/LaunchScreen.storyboard', 'Resources/Licenses.txt', '../../assets/gba-indigo']
+    resources = ['Resources/Assets.xcassets', 'Resources/PrivacyInfo.xcprivacy', 'Resources/LaunchScreen.storyboard', 'Resources/Licenses.txt', '../../assets/gba-indigo', '../../assets/ios-outline']
     resource_refs, resource_builds = [], []
     for path in resources:
-        kind = 'folder' if path.endswith('gba-indigo') else 'folder.assetcatalog' if path.endswith('xcassets') else 'file.storyboard' if path.endswith('storyboard') else 'text.xml' if path.endswith('xcprivacy') else 'text'
+        kind = 'folder' if path.startswith('../../assets/') else 'folder.assetcatalog' if path.endswith('xcassets') else 'file.storyboard' if path.endswith('storyboard') else 'text.xml' if path.endswith('xcprivacy') else 'text'
         r = ref(path, kind)
         resource_refs.append(r)
         resource_builds.append(obj('build:' + path, 'PBXBuildFile', fileRef=r))

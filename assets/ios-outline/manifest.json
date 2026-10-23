@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "color": "#FFFFFF",
+  "strokeWidth": 2,
+  "background": "transparent",
+  "icons": {
+    "dpad": {
+      "svg": "svg/dpad.svg",
+      "png": "png/dpad@3x.png",
+      "width": 128,
+      "height": 128,
+      "scale": 3
+    },
+    "a": {
+      "svg": "svg/a.svg",
+      "png": "png/a@3x.png",
+      "width": 64,
+      "height": 64,
+      "scale": 3
+    },
+    "b": {
+      "svg": "svg/b.svg",
+      "png": "png/b@3x.png",
+      "width": 64,
+      "height": 64,
+      "scale": 3
+    },
+    "l": {
+      "svg": "svg/l.svg",
+      "png": "png/l@3x.png",
+      "width": 88,
+      "height": 48,
+      "scale": 3
+    },
+    "r": {
+      "svg": "svg/r.svg",
+      "png": "png/r@3x.png",
+      "width": 88,
+      "height": 48,
+      "scale": 3
+    },
+    "select": {
+      "svg": "svg/select.svg",
+      "png": "png/select@3x.png",
+      "width": 64,
+      "height": 44,
+      "scale": 3
+    },
+    "start": {
+      "svg": "svg/start.svg",
+      "png": "png/start@3x.png",
+      "width": 64,
+      "height": 44,
+      "scale": 3
+    },
+    "menu": {
+      "svg": "svg/menu.svg",
+      "png": "png/menu@3x.png",
+      "width": 44,
+      "height": 44,
+      "scale": 3
+    }
+  }
+}

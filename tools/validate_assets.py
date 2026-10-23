@@ -37,3 +37,15 @@ embedded=json.loads(preview.removeprefix('window.GBA_ASSETS = ').strip().removes
 assert embedded==manifest,'Preview manifest differs from source'
 for name in ('index.html','preview.css','preview.js'):assert (ROOT/'preview'/name).is_file()
 print('OK: 3 façades, 7 boutons RGBA, fenêtres 3:2, coordonnées et manifeste de prévisualisation.')
+
+# The modern controls are white vectors, with transparent @3x PNGs for UIKit.
+import xml.etree.ElementTree as ET
+ASSETS = ROOT/'assets/ios-outline'
+outline = json.loads((ASSETS/'manifest.json').read_text(encoding='utf-8'))
+assert set(outline['icons']) == expected | {'menu'}
+for name, icon in outline['icons'].items():
+    assert dimensions(icon['png']) == (icon['width']*3, icon['height']*3)
+    svg = ET.parse(ASSETS/icon['svg']).getroot()
+    assert svg.attrib['fill'] == 'none' and svg.attrib['stroke'] == '#fff'
+    assert svg.attrib['viewBox'] == f"0 0 {icon['width']} {icon['height']}"
+print('OK: 8 icônes blanches SVG et 8 PNG RGBA @3x.')
