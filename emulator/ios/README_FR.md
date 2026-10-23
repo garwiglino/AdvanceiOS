@@ -14,12 +14,12 @@ Le projet Xcode est déjà généré : **`mGBA-iOS.xcodeproj`**. Conserver **tou
 
 Aucun certificat, compte Apple, profil de provisionnement ou jeu commercial n’est fourni. Le petit programme original `tests/ios-smoke-test.gba` est fourni pour vérifier le rendu : il produit un écran vert et écrit un marqueur dans la SRAM.
 
-**Validation actuelle :** le moteur C et le pont du port ont été compilés et exécutés sous Windows. L’environnement de création ne comporte pas Xcode ni les SDK Apple. Le workflow GitHub Actions `ios.yml` effectue les compilations simulateur et appareil sans signature sur Mac ; consulter son résultat pour le commit utilisé. Les essais interactifs sur iPhone restent nécessaires. Voir `VALIDATION.md` ; le projet n’est pas présenté comme un IPA déjà compilé ou une application déjà validée pour l’App Store.
+**Validation actuelle :** compilation Debug simulateur et Release iOS sans signature réussie avec Xcode 26.6 sur GitHub Actions, et tests C réussis sous Windows ainsi que sur Mac. [Exécution de référence](https://github.com/garwiglino/AdvanceiOS/actions/runs/39957221485). Les essais tactiles, le son et les performances sur iPhone physique restent à effectuer. Voir `VALIDATION.md`.
 
 ## Fonctions de cette version
 
 - Bibliothèque GBA, GB et GBC, import multiple depuis Fichiers, détection par le moteur, identification par SHA-256 pour séparer les sauvegardes des différentes ROM.
-- Rendu logiciel du moteur, pixels nets, proportions conservées, interface portrait/paysage pour iPhone et iPad.
+- Rendu logiciel du moteur, pixels nets, proportions conservées, interface paysage sur iPhone, disposition adaptable aux rotations et fenêtres iPad.
 - Croix directionnelle avec diagonales et glissement, A/B/L/R/Start/Select simultanés ; façades Indigo et boutons du dépôt, bascule 3D de la croix en huit secteurs de 45°, zone centrale neutre, retour haptique désactivable et respect de Réduire les animations.
 - Manettes exposant un profil Game Controller étendu : croix/stick gauche, A/B, épaules, Menu = Start, Options ou X = Select.
 - Audio stéréo à 48 kHz, tampon circulaire sans verrou dans le callback audio, vitesse normale et accélération ×2 avec son coupé.

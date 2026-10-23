@@ -18,8 +18,16 @@ jobs:
           python3 emulator/ios/tools/verify_project.py
       - name: Build simulator, device and run portable tests
         run: bash emulator/ios/tools/verify-macos.sh
+      - name: Launch the console in iOS Simulator
+        run: python3 emulator/ios/tools/smoke_simulator.py
       - name: Keep unsigned simulator app
         uses: actions/upload-artifact@v4
         with:
           name: AdvanceiOS-simulator
           path: emulator/ios/build-simulator/Build/Products/Debug-iphonesimulator/*.app
+      - name: Keep simulator screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AdvanceiOS-simulator-screenshot
+          path: emulator/ios/build-simulator/launcher-simulator.png

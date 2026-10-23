@@ -54,6 +54,10 @@
     return self;
 }
 - (BOOL)prefersStatusBarHidden { return YES; }
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad ? UIInterfaceOrientationMaskAll : UIInterfaceOrientationMaskLandscape;
+}
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation { return UIInterfaceOrientationLandscapeRight; }
 - (BOOL)prefersHomeIndicatorAutoHidden { return YES; }
 - (void)viewDidLoad {
     [super viewDidLoad];

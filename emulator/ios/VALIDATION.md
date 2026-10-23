@@ -29,7 +29,9 @@ L’icône provisoire a été inspectée visuellement. Les scripts Python ont pa
 
 ## Compilation Mac et essais interactifs
 
-Xcode, les SDK Apple, le simulateur et un appareil iOS ne sont pas présents dans cet environnement. L’interface native et les branchements AVAudioEngine/GameController n’ont donc **pas été compilés ni exécutés ici**. Aucun IPA signé ni preuve de fonctionnement sur iPhone n’est fourni.
+Le poste local fonctionne sous Windows. La compilation Apple a été effectuée sur le runner Mac de GitHub Actions : **Xcode 26.6**, Debug pour simulateur et Release pour appareil, avec `CODE_SIGNING_ALLOWED=NO`. Les deux compilations et les 107 unités de tests C avec Apple Clang ont réussi pour le commit `f07a17a` : [journal de référence](https://github.com/garwiglino/AdvanceiOS/actions/runs/39957221485).
+
+Le workflow comprend aussi un essai de lancement réel sur simulateur et une capture conservée comme artefact. Cette vérification ne remplace pas les essais tactiles, audio, manettes et autonomie sur appareil. Aucun IPA signé n’est fourni.
 
 Le workflow `.github/workflows/ios.yml` exécute ce contrôle sur un runner Mac à chaque push ; son résultat est la référence pour le commit concerné.
 
@@ -39,7 +41,7 @@ Après ces compilations, effectuer les essais interactifs suivants :
 
 1. Importer `tests/ios-smoke-test.gba` depuis Fichiers et vérifier l’écran vert. Essayer ensuite un jeu de test ou homebrew doté de son et d’entrées interactives.
 2. Vérifier les couleurs rouge/bleu, le son stéréo, les touches simultanées, le glissement de la croix, les diagonales et le relâchement après annulation d’un toucher.
-3. Vérifier portrait/paysage sur petit et grand iPhone, iPad, et les changements de dimensions de fenêtre iPad. Les commandes doivent rester dans la zone utilisable.
+3. Vérifier les deux paysages sur petit et grand iPhone, les rotations iPad, et les changements de dimensions de fenêtre iPad. Les commandes doivent rester dans la zone utilisable.
 4. Essayer une manette étendue : connexion, déconnexion avec touche maintenue, croix/stick, A/B/L/R, Menu et Options/X.
 5. Sauvegarder depuis le jeu, revenir à la bibliothèque, relancer et vérifier les données. Tester les cinq états et le refus d’un état invalide.
 6. Exporter un `.sav`, l’importer, vérifier `battery-backup.sav` et le démarrage sans l’ancien `resume.ss0`. Vérifier les erreurs d’écriture et l’absence d’espace disque.
