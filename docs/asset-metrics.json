@@ -1,0 +1,353 @@
+[
+  {
+    "file": "bouton-a.png",
+    "width": 1254,
+    "height": 1254,
+    "alphaZeroPixels": 962285,
+    "contentRect": {
+      "x": 187,
+      "y": 184,
+      "width": 873,
+      "height": 884
+    },
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "bouton-b.png",
+    "width": 1254,
+    "height": 1254,
+    "alphaZeroPixels": 961213,
+    "contentRect": {
+      "x": 186,
+      "y": 183,
+      "width": 875,
+      "height": 886
+    },
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "bouton-croix.png",
+    "width": 1254,
+    "height": 1254,
+    "alphaZeroPixels": 917374,
+    "contentRect": {
+      "x": 99,
+      "y": 118,
+      "width": 1053,
+      "height": 1028
+    },
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "bouton-l.png",
+    "width": 1254,
+    "height": 1254,
+    "alphaZeroPixels": 1202207,
+    "contentRect": {
+      "x": 49,
+      "y": 472,
+      "width": 1155,
+      "height": 354
+    },
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "bouton-r.png",
+    "width": 1254,
+    "height": 1254,
+    "alphaZeroPixels": 1200397,
+    "contentRect": {
+      "x": 52,
+      "y": 470,
+      "width": 1151,
+      "height": 355
+    },
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "bouton-select.png",
+    "width": 1254,
+    "height": 1254,
+    "alphaZeroPixels": 1126332,
+    "contentRect": {
+      "x": 97,
+      "y": 395,
+      "width": 1058,
+      "height": 463
+    },
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "bouton-start.png",
+    "width": 1254,
+    "height": 1254,
+    "alphaZeroPixels": 1123639,
+    "contentRect": {
+      "x": 96,
+      "y": 395,
+      "width": 1062,
+      "height": 464
+    },
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "facade-ipad.png",
+    "width": 1448,
+    "height": 1086,
+    "alphaZeroPixels": 445150,
+    "openings": [
+      {
+        "x": 295,
+        "y": 158,
+        "width": 859,
+        "height": 538,
+        "area": 460938
+      },
+      {
+        "x": 107,
+        "y": 795,
+        "width": 194,
+        "height": 195,
+        "area": 20474
+      },
+      {
+        "x": 1043,
+        "y": 857,
+        "width": 116,
+        "height": 115,
+        "area": 10507
+      },
+      {
+        "x": 1206,
+        "y": 797,
+        "width": 115,
+        "height": 116,
+        "area": 10431
+      },
+      {
+        "x": 1111,
+        "y": 37,
+        "width": 204,
+        "height": 49,
+        "area": 9209
+      },
+      {
+        "x": 134,
+        "y": 37,
+        "width": 204,
+        "height": 49,
+        "area": 9176
+      },
+      {
+        "x": 559,
+        "y": 881,
+        "width": 118,
+        "height": 38,
+        "area": 4188
+      },
+      {
+        "x": 772,
+        "y": 881,
+        "width": 118,
+        "height": 38,
+        "area": 4172
+      }
+    ],
+    "cornerAlpha": [
+      252,
+      252,
+      252,
+      252
+    ],
+    "violetSample": [
+      78,
+      69,
+      160
+    ]
+  },
+  {
+    "file": "facade-iphone-classique.png",
+    "width": 1672,
+    "height": 941,
+    "alphaZeroPixels": 413845,
+    "openings": [
+      {
+        "x": 453,
+        "y": 188,
+        "width": 762,
+        "height": 507,
+        "area": 385353
+      },
+      {
+        "x": 104,
+        "y": 339,
+        "width": 201,
+        "height": 207,
+        "area": 23674
+      },
+      {
+        "x": 1350,
+        "y": 145,
+        "width": 211,
+        "height": 63,
+        "area": 11811
+      },
+      {
+        "x": 108,
+        "y": 145,
+        "width": 206,
+        "height": 62,
+        "area": 11499
+      },
+      {
+        "x": 1475,
+        "y": 354,
+        "width": 109,
+        "height": 109,
+        "area": 9326
+      },
+      {
+        "x": 1335,
+        "y": 442,
+        "width": 109,
+        "height": 110,
+        "area": 9289
+      },
+      {
+        "x": 98,
+        "y": 667,
+        "width": 103,
+        "height": 49,
+        "area": 4550
+      },
+      {
+        "x": 233,
+        "y": 667,
+        "width": 103,
+        "height": 49,
+        "area": 4522
+      }
+    ],
+    "cornerAlpha": [
+      253,
+      251,
+      251,
+      253
+    ],
+    "violetSample": [
+      75,
+      67,
+      150
+    ]
+  },
+  {
+    "file": "facade-iphone-large.png",
+    "width": 1846,
+    "height": 852,
+    "alphaZeroPixels": 434359,
+    "openings": [
+      {
+        "x": 526,
+        "y": 144,
+        "width": 795,
+        "height": 528,
+        "area": 418674
+      },
+      {
+        "x": 197,
+        "y": 295,
+        "width": 195,
+        "height": 196,
+        "area": 21376
+      },
+      {
+        "x": 1453,
+        "y": 131,
+        "width": 198,
+        "height": 57,
+        "area": 10160
+      },
+      {
+        "x": 194,
+        "y": 131,
+        "width": 197,
+        "height": 57,
+        "area": 10116
+      },
+      {
+        "x": 1439,
+        "y": 390,
+        "width": 100,
+        "height": 103,
+        "area": 8075
+      },
+      {
+        "x": 1560,
+        "y": 317,
+        "width": 100,
+        "height": 101,
+        "area": 7935
+      },
+      {
+        "x": 191,
+        "y": 595,
+        "width": 105,
+        "height": 49,
+        "area": 4632
+      },
+      {
+        "x": 321,
+        "y": 595,
+        "width": 95,
+        "height": 49,
+        "area": 4166
+      }
+    ],
+    "cornerAlpha": [
+      246,
+      252,
+      251,
+      252
+    ],
+    "violetSample": [
+      80,
+      70,
+      158
+    ]
+  }
+]

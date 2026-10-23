@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>GBA Indigo — Atelier des calques</title>
+<link rel="stylesheet" href="preview.css">
+</head>
+<body>
+<header><div class="eyebrow">GAME BOY ADVANCE · INDIGO</div><h1>Une façade. Chaque commande indépendante.</h1><p>Trois compositions en paysage, avec ouvertures transparentes et boutons séparés.</p></header>
+<main>
+<div class="toolbar">
+<label>Écran <select id="device">
+<option value="wide">iPhone récent · 2622 × 1206</option>
+<option value="compact">iPhone compact · 2340 × 1080</option>
+<option value="classic">iPhone SE · 1334 × 750</option>
+<option value="ipad">iPad 13″ · 2752 × 2064</option>
+<option value="ipad11">iPad 11″ · 2420 × 1668</option>
+<option value="mini">iPad mini · 2266 × 1488</option>
+</select></label>
+<label class="check"><input type="checkbox" id="guides"> Marges simulées</label>
+<label class="check"><input type="checkbox" id="holes"> Voir les ouvertures</label>
+<button id="fullscreen" class="action">Plein écran</button>
+</div>
+<div class="viewport" id="viewport" aria-label="Aperçu interactif de la façade">
+<div id="board" class="board"><div id="game" class="game"><span>GAME VIEW</span><strong>240 × 160</strong><small>Image entière · 3:2</small></div><img id="face" class="face" alt="Façade violette avec logements des boutons" draggable="false"><div id="controls"></div></div>
+<div class="safe-guide" id="safeGuide"><span>Zone préservée</span></div>
+<div id="camera" class="camera" aria-hidden="true"></div>
+<div id="gesture" class="gesture" aria-hidden="true"></div>
+</div>
+<div class="caption"><span id="status" aria-live="polite">Appuie sur une commande pour essayer.</span><span>Aperçu des calques · sans émulation</span></div>
+<section class="notes"><div><h2>Un appui lisible</h2><p>Enfoncement léger, ombre réduite et retour immédiat. Aucun fichier d’état enfoncé supplémentaire.</p></div><div><h2>Des gâchettes accessibles</h2><p>L et R disposent d’une zone d’appui agrandie. Les marges simulées permettent d’inspecter les deux bords.</p></div><div><h2>Un pack réutilisable</h2><p>Les PNG restent indépendants. Le fichier manifest.json contient les positions et la fenêtre de jeu exacte.</p></div></section>
+<p class="help">Clavier : flèches = croix · X = A · Z = B · Q/E = L/R · Entrée = Start · Maj = Select.<br>Les dimensions indiquées sont celles des appareils ; les PNG sources ont leur propre résolution. Les marges de l’aperçu sont des simulations, à remplacer par les valeurs réelles d’iOS lors de l’intégration.</p>
+</main>
+<div id="safeProbe" aria-hidden="true"></div>
+<script src="assets.js"></script><script src="preview.js"></script>
+</body></html>
