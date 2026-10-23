@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "name": "Paysage — exemple pour une façade 1600 × 900",
+      "minAspect": 1.0,
+      "maxAspect": 4.0,
+      "image": "facade-paysage.png",
+      "screen": [0.25, 0.15, 0.50, 0.592592],
+      "controls": {
+        "dpad": [0.035, 0.37, 0.19, 0.337778],
+        "a": [0.88, 0.37, 0.075, 0.133333],
+        "b": [0.79, 0.51, 0.075, 0.133333],
+        "l": [0.04, 0.07, 0.15, 0.09],
+        "r": [0.81, 0.07, 0.15, 0.09],
+        "select": [0.40, 0.84, 0.08, 0.07],
+        "start": [0.52, 0.84, 0.08, 0.07]
+      },
+      "buttonImages": {
+        "a": {"normal": "a.png", "pressed": "a-pressed.png"},
+        "b": {"normal": "b.png", "pressed": "b-pressed.png"},
+        "l": {"normal": "l.png", "pressed": "l-pressed.png"},
+        "r": {"normal": "r.png", "pressed": "r-pressed.png"},
+        "start": {"normal": "start.png", "pressed": "start-pressed.png"},
+        "select": {"normal": "select.png", "pressed": "select-pressed.png"},
+        "dpad": {"normal": "dpad.png", "up": "dpad-up.png", "down": "dpad-down.png", "left": "dpad-left.png", "right": "dpad-right.png", "upLeft": "dpad-up-left.png", "upRight": "dpad-up-right.png", "downLeft": "dpad-down-left.png", "downRight": "dpad-down-right.png"}
+      }
+    },
+    {
+      "name": "Portrait — exemple pour une façade 900 × 1600",
+      "minAspect": 0.0,
+      "maxAspect": 1.0,
+      "image": "facade-portrait.png",
+      "screen": [0.08, 0.10, 0.84, 0.315],
+      "controls": {
+        "dpad": [0.06, 0.57, 0.32, 0.18],
+        "a": [0.79, 0.57, 0.15, 0.084375],
+        "b": [0.61, 0.66, 0.15, 0.084375],
+        "l": [0.05, 0.47, 0.22, 0.05],
+        "r": [0.73, 0.47, 0.22, 0.05],
+        "select": [0.30, 0.85, 0.16, 0.045],
+        "start": [0.54, 0.85, 0.16, 0.045]
+      },
+      "buttonImages": {
+        "a": {"normal": "a.png", "pressed": "a-pressed.png"},
+        "b": {"normal": "b.png", "pressed": "b-pressed.png"},
+        "l": {"normal": "l.png", "pressed": "l-pressed.png"},
+        "r": {"normal": "r.png", "pressed": "r-pressed.png"},
+        "start": {"normal": "start.png", "pressed": "start-pressed.png"},
+        "select": {"normal": "select.png", "pressed": "select-pressed.png"},
+        "dpad": {"normal": "dpad.png", "pressed": "dpad-pressed.png"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+name: iOS build and core tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate assets and project
+        run: |
+          python3 tools/validate_assets.py
+          python3 emulator/ios/tools/verify_project.py
+      - name: Build simulator, device and run portable tests
+        run: bash emulator/ios/tools/verify-macos.sh
+      - name: Keep unsigned simulator app
+        uses: actions/upload-artifact@v4
+        with:
+          name: AdvanceiOS-simulator
+          path: emulator/ios/build-simulator/Build/Products/Debug-iphonesimulator/*.app

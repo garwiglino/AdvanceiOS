@@ -59,7 +59,7 @@ Une option de glissement A/B vers R a été envisagée pour maintenir une combin
 
 Les images livrées restent dans l’état de repos. Animation indicative de la démo : descente de 2 pixels CSS, échelle 0,975 et légère baisse de luminosité pendant l’appui, transition de 80 ms. Respecter l’option de réduction des animations. Aucun nouveau PNG d’état enfoncé n’est nécessaire.
 
-Traiter chaque contact séparément pour autoriser A+direction ou L+A. Libérer les touches sur fin de contact, annulation, perte de capture et mise en arrière-plan afin d’éviter une touche bloquée. La croix de l’aperçu détecte les quatre directions et leurs diagonales logiques sans changer de sprite.
+Traiter chaque contact séparément pour autoriser A+direction ou L+A. Libérer les touches sur fin de contact, annulation, perte de capture et mise en arrière-plan afin d’éviter une touche bloquée. La croix utilise huit secteurs égaux de 45° et une zone neutre centrale de rayon 0,25 (rayon du bouton = 1). Le PNG unique bascule de 10° autour du pivot dans la direction pressée, y compris les diagonales. La géométrie d’entrée reste fixe pendant l’animation. SwiftUI et l’aperçu partagent ces règles.
 
 L’aperçu émet un événement par changement d’état :
 
@@ -74,3 +74,7 @@ window.addEventListener('gba-input', ({ detail }) => {
 Aucun moteur d’émulation ni retour haptique n’est relié à cette démonstration. Les positions et zones tactiles doivent être validées sur les appareils réellement visés.
 
 Référence de disposition : [Apple — Layout](https://developer.apple.com/design/human-interface-guidelines/layout).
+
+## Application native
+
+Le port est dans `emulator/ios`. `MGBAConsoleView.swift` reproduit ces calques en SwiftUI, `MGBAControls.m` suit les contacts simultanés et `MGBAInput.c` quantifie les directions. Le lanceur et les images mGBA utilisent la même vue centrale. Le projet référence les assets de ce dépôt directement. Les vibrations sont disponibles dans l’application et se désactivent dans les options du lanceur.

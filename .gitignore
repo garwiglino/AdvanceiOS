@@ -3,3 +3,12 @@ Thumbs.db
 __pycache__/
 *.pyc
 .preview-checks/
+
+# Native build outputs and personal Xcode settings
+build-*/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.ipa
+*.zip
+*.zip.sha256

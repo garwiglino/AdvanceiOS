@@ -23,23 +23,29 @@ function updateInput(owner, values) {
   for(const key of new Set([...active,...next])) {
     if(active.has(key)!==next.has(key)) window.dispatchEvent(new CustomEvent('gba-input',{detail:{button:key,pressed:next.has(key)}}));
   }
+  if(next.has('left')&&next.has('right')){next.delete('left');next.delete('right');}
+  if(next.has('up')&&next.has('down')){next.delete('up');next.delete('down');}
   active = next;
   for(const [key,element] of Object.entries(keys)) {
     const down = key==='dpad' ? ['up','down','left','right'].some(k=>active.has(k)) : active.has(key);
     element.classList.toggle('pressed',down);
+  }
+  if(keys.dpad) {
+    const tilt=window.GBAInput.tilt(active),style=keys.dpad.firstElementChild.style;
+    style.setProperty('--pad-x',tilt.dx+'px');style.setProperty('--pad-y',tilt.dy+'px');
+    style.setProperty('--axis-x',tilt.axisX);style.setProperty('--axis-y',tilt.axisY || (tilt.axisX?0:1));
+    style.setProperty('--tilt',tilt.angle+'deg');
   }
   if(active.size)lastPressed=[...active].map(k=>labels[k]).join(' + ');
   $('status').textContent = active.size ? lastPressed+' — enfoncé' : lastPressed ? 'Dernier appui : '+lastPressed+' · relâché' : 'Appuie sur une commande pour essayer.';
 }
 function releaseAll() { for(const owner of [...owners.keys()]) updateInput(owner,[]); }
 function directions(event, element) {
-  const box = element.getBoundingClientRect();
-  const x = (event.clientX-box.left)/box.width-.5;
-  const y = (event.clientY-box.top)/box.height-.5;
-  const result=[];
-  if(x<-.16)result.push('left'); if(x>.16)result.push('right');
-  if(y<-.16)result.push('up'); if(y>.16)result.push('down');
-  return result;
+  const box=element.getBoundingClientRect(),graphic=element.firstElementChild;
+  // Use the fixed pivot and artwork size, never the tilted bounding rectangle.
+  const x=2*(event.clientX-box.left-graphic.offsetLeft*scale)/(graphic.offsetWidth*scale)-1;
+  const y=2*(event.clientY-box.top-graphic.offsetTop*scale)/(graphic.offsetHeight*scale)-1;
+  return window.GBAInput.directions(x,y);
 }
 function buildControls() {
   $('controls').replaceChildren(); keys={};
